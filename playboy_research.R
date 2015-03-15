@@ -123,7 +123,7 @@ text(mean(df_WH$WH), 210, labels = paste("median = ", as.character(round(median(
      pos = 4, col="blue")
 
 ## Calculate most beautiful model by mean of measurements
-prec <- 2
+prec <- 1
 bust <- round(mean(df_Bust$Bust), digits = prec)
 cup <- round(mean(df_Cup$Cup), digits = prec)
 waist <- round(mean(df_Waist$Waist), digits = prec)
@@ -131,6 +131,7 @@ hips <- round(mean(df_Hips$Hips), digits = prec)
 height <- round(mean(df_Height$Height), digits = prec)
 weight <- round(mean(df_Weight$Weight), digits = prec)
 bmi <- round(mean(df_BMI$BMI), digits = prec)
+wh <- round(mean(df_WH$WH), digits = prec)
 
 df1 <- subset(df, complete.cases(df)==TRUE)
 range <- 1
@@ -142,8 +143,14 @@ df1[
   df1$Hips < hips+range & df1$Hips > hips-range &
   df1$Height < height+range & df1$Height > height-range &
   df1$Weight < weight+range & df1$Weight > weight-range &
-  df1$BMI < bmi+range & df1$BMI > bmi-range     
+  df1$BMI < bmi+range & df1$BMI > bmi-range &
+  df1$WH < wh+range & df1$WH > wh-range 
 ,]
+### We get Stacy Arthur here. She is all time star.
+### http://en.wikipedia.org/wiki/Stacy_Arthur
+### Month Year Bust Cup Waist Hips Height Weight      BMI        WH       Date
+### 446 January 1991   36   4    23   35     67    115 18.00958 0.6571429 1991-01-01
+
 
 ## Calculate most beautiful model by median of measurements
 bust <- round(median(df_Bust$Bust), digits = prec)
@@ -153,16 +160,32 @@ hips <- round(median(df_Hips$Hips), digits = prec)
 height <- round(median(df_Height$Height), digits = prec)
 weight <- round(median(df_Weight$Weight), digits = prec)
 bmi <- round(median(df_BMI$BMI), digits = prec)
+wh <- round(median(df_WH$WH), digits = prec)
 
-range <- 1
+range <- 1.001
 
 df1[ 
-  df1$Bust < bust+range & df1$Bust > bust-range &
+    df1$Bust < bust+range & df1$Bust > bust-range &
     df1$Cup < cup+range & df1$Cup > cup-range &
     df1$Waist < waist+range & df1$Waist > waist-range &
     df1$Hips < hips+range & df1$Hips > hips-range &
     df1$Height < height+range & df1$Height > height-range &
     df1$Weight < weight+range & df1$Weight > weight-range &
-    df1$BMI < bmi+range & df1$BMI > bmi-range     
+    df1$BMI < bmi+range & df1$BMI > bmi-range &
+    df1$WH < wh+range & df1$WH > wh-range 
   ,]
-
+### We get many girls here
+### 1. http://en.wikipedia.org/wiki/Stacy_Arthur
+### 2. http://en.wikipedia.org/wiki/Valerie_Mason-John
+### 3. http://en.wikipedia.org/wiki/Kelly_Carrington
+### 
+### Month Year Bust Cup Waist Hips Height Weight      BMI        WH       Date
+### 446   January 1991   36   4    23   35     67    115 18.00958 0.6571429 1991-01-01
+### 460     March 1992   34   3    23   34     66    116 18.72084 0.6764706 1992-03-01
+### 520     March 1997   36   3    24   34     65    114 18.96852 0.7058824 1997-03-01
+### 523      June 1997   34   4    24   34     66    114 18.39807 0.7058824 1997-06-01
+### 613  December 2004   34   3    23   35     66    115 18.55946 0.6571429 2004-12-01
+### 628     March 2006   36   3    24   36     66    114 18.39807 0.6666667 2006-03-01
+### 644      July 2007   34   4    24   34     67    115 18.00958 0.7058824 2007-07-01
+### 658 September 2008   34   4    25   36     67    115 18.00958 0.6944444 2008-09-01
+### 659   October 2008   34   3    24   34     65    115 19.13491 0.7058824 2008-10-01
