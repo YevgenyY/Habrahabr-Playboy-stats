@@ -44,17 +44,18 @@ df_BMI <- tmp[!(tmp$BMI == 0),]
 tmp <- subset(df, complete.cases(df$WH)==TRUE)
 df_WH <- tmp[!(tmp$WH == 0),]
 
+par(mfrow=c(3,3))
 ## Plot Bust size
-hist(df_Bust$Bust, main="Распределение размера Bust", xlab="Bust", col="cyan")
+hist(df_Bust$Bust, main="Частота Bust", xlab="Bust", col="cyan")
 abline(v=mean(df_Bust$Bust), lty=2, lwd=3, col="red")
 abline(v=median(df_Bust$Bust), lty=2, lwd=3, col="blue")
 text(mean(df_Bust$Bust), 100, labels = paste("mean = ", as.character(round(mean(df_Bust$Bust), digits=4))),
      pos = 4, col="red")
-text(mean(df_Bust$Bust), 110, labels = paste("median = ", as.character(round(median(df_Bust$Bust), digits=4))),
+text(mean(df_Bust$Bust), 120, labels = paste("median = ", as.character(round(median(df_Bust$Bust), digits=4))),
      pos = 4, col="blue")
 
 ## Plot Cup size
-hist(df_Cup$Cup, main="Распределение размера Cup", xlab="Cup", col="cyan")
+hist(df_Cup$Cup, main="Частота Cup", xlab="Cup", col="cyan")
 abline(v=mean(df_Cup$Cup), lty=2, lwd=3, col="red")
 abline(v=median(df_Cup$Cup), lty=2, lwd=3, col="blue")
 text(mean(df_Cup$Cup), 50, labels = paste("mean = ", as.character(round(mean(df_Cup$Cup), digits=4))), 
@@ -63,7 +64,7 @@ text(mean(df_Cup$Cup), 60, labels = paste("median = ", as.character(round(median
      pos = 4, col="blue")
 
 ## Plot Waist size
-hist(df_Waist$Waist, main="Распределение размера Waist", xlab="Waist", col="cyan")
+hist(df_Waist$Waist, main="Частота Waist", xlab="Waist", col="cyan")
 abline(v=mean(df_Waist$Waist), lty=2, lwd=3, col="red")
 abline(v=median(df_Waist$Waist), lty=2, lwd=3, col="blue")
 text(mean(df_Waist$Waist), 200, labels = paste("mean = ", as.character(round(mean(df_Waist$Waist), digits=4))), 
@@ -72,13 +73,13 @@ text(mean(df_Waist$Waist), 230, labels = paste("median = ", as.character(round(m
      pos = 4, col="blue")
 
 ## Plot Hips size
-hist(df_Hips$Hips, main="Распределение размера Hips", xlab="Hips", col="cyan")
+hist(df_Hips$Hips, main="Частота Hips", xlab="Hips", col="cyan")
 abline(v=mean(df_Hips$Hips), lty=2, lwd=3, col="red")
 abline(v=median(df_Hips$Hips), lty=2, lwd=3, col="blue")
-text(mean(df_Hips$Hips), 160, labels = paste("mean = ", as.character(round(mean(df_Hips$Hips), digits=4))), 
-     pos = 4, col="red")
+text(mean(df_Hips$Hips), 150, labels = paste("mean = ", as.character(round(mean(df_Hips$Hips), digits=4))), 
+     pos = 3, col="red")
 text(mean(df_Hips$Hips), 170, labels = paste("median = ", as.character(round(median(df_Hips$Hips), digits=4))), 
-     pos = 4, col="blue")
+     pos = 3, col="blue")
 
 ## List models whos hips size < 30
 df_Hips[df_Hips$Hips < 30,]
@@ -87,39 +88,39 @@ df_Hips[df_Hips$Hips < 30,]
 ## 3. Jan 2005 - Destiny Davis, real hips size: 34" - incorrect, need to fix in the dataset
 
 ## Plot Height size
-hist(df_Height$Height, main="Распределение размера Height", xlab="Height", col="cyan")
+hist(df_Height$Height, main="Частота Height", xlab="Height", col="cyan")
 abline(v=mean(df_Height$Height), lty=2, lwd=3, col="red")
 abline(v=median(df_Height$Height), lty=2, lwd=3, col="blue")
 text(mean(df_Height$Height), 60, labels = paste("mean = ", as.character(round(mean(df_Height$Height), digits=4))),
      pos = 4, col="red")
-text(mean(df_Height$Height), 70, labels = paste("median = ", as.character(round(median(df_Height$Height), digits=4))),
+text(mean(df_Height$Height), 80, labels = paste("median = ", as.character(round(median(df_Height$Height), digits=4))),
      pos = 4, col="blue")
 
 ## Plot Weight size
-hist(df_Weight$Weight, main="Распределение размера Weight", xlab="Weight", col="cyan")
+hist(df_Weight$Weight, main="Частота Weight", xlab="Weight", col="cyan")
 abline(v=mean(df_Weight$Weight), lty=2, lwd=3, col="red")
 abline(v=median(df_Weight$Weight), lty=2, lwd=3, col="blue")
 text(mean(df_Weight$Weight), 100, labels = paste("mean = ", as.character(round(mean(df_Weight$Weight), digits=4))),
      pos = 4, col="red")
-text(mean(df_Weight$Weight), 110, labels = paste("median = ", as.character(round(median(df_Weight$Weight), digits=4))),
+text(mean(df_Weight$Weight), 120, labels = paste("median = ", as.character(round(median(df_Weight$Weight), digits=4))),
      pos = 4, col="blue")
 
 ## Plot BMI size
-hist(df_BMI$BMI, main="Распределение размера BMI", xlab="BMI", col="cyan") 
+hist(df_BMI$BMI, main="Частота BMI", xlab="BMI", col="cyan") 
 abline(v=mean(df_BMI$BMI), lty=2, lwd=3, col="red")
 abline(v=median(df_BMI$BMI), lty=2, lwd=3, col="blue")
 text(mean(df_BMI$BMI), 60, labels = paste("mean = ", as.character(round(mean(df_BMI$BMI), digits=4))),
      pos = 4, col="red")
-text(mean(df_BMI$BMI), 70, labels = paste("median = ", as.character(round(median(df_BMI$BMI), digits=4))),
+text(mean(df_BMI$BMI), 80, labels = paste("median = ", as.character(round(median(df_BMI$BMI), digits=4))),
      pos = 4, col="blue")
 
 ## Plot WH size
-hist(df_WH$WH, main="Распределение размера WH", xlab="WH", col="cyan")
+hist(df_WH$WH, main="Частота Waist/Hips", xlab="WH", col="cyan")
 abline(v=mean(df_WH$WH), lty=2, lwd=3, col="red")
 abline(v=median(df_WH$WH), lty=2, lwd=3, col="blue")
 text(mean(df_WH$WH), 200, labels = paste("mean = ", as.character(round(mean(df_WH$WH), digits=4))),
      pos = 4, col="red")
-text(mean(df_WH$WH), 210, labels = paste("median = ", as.character(round(median(df_WH$WH), digits=4))),
+text(mean(df_WH$WH), 220, labels = paste("median = ", as.character(round(median(df_WH$WH), digits=4))),
      pos = 4, col="blue")
 
 ## Calculate most beautiful model by mean of measurements
@@ -150,7 +151,6 @@ df1[
 ### http://en.wikipedia.org/wiki/Stacy_Arthur
 ### Month Year Bust Cup Waist Hips Height Weight      BMI        WH       Date
 ### 446 January 1991   36   4    23   35     67    115 18.00958 0.6571429 1991-01-01
-
 
 ## Calculate most beautiful model by median of measurements
 bust <- round(median(df_Bust$Bust), digits = prec)
@@ -189,3 +189,14 @@ df1[
 ### 644      July 2007   34   4    24   34     67    115 18.00958 0.7058824 2007-07-01
 ### 658 September 2008   34   4    25   36     67    115 18.00958 0.6944444 2008-09-01
 ### 659   October 2008   34   3    24   34     65    115 19.13491 0.7058824 2008-10-01
+
+## Show trends
+par(mfrow=c(3,3))
+plot(df_Bust$Date, df_Bust$Bust)
+plot(df_Cup$Date, df_Cup$Cup)
+plot(df_Height$Date, df_Height$Height)
+plot(df_Weight$Date, df_Weight$Weight)
+plot(df_Waist$Date, df_Waist$Waist)
+plot(df_Hips$Date, df_Hips$Hips)
+plot(df_BMI$Date, df_BMI$BMI)
+plot(df_WH$Date, df_WH$WH)
