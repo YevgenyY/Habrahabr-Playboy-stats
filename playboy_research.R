@@ -46,7 +46,7 @@ df_WH <- tmp[!(tmp$WH == 0),]
 
 par(mfrow=c(3,3))
 ## Plot Bust size
-hist(df_Bust$Bust, main="Частота Bust", xlab="Bust", col="cyan")
+hist(df_Bust$Bust, main="Популярность размеров\n Bust", xlab="Bust", col="cyan")
 abline(v=mean(df_Bust$Bust), lty=2, lwd=3, col="red")
 abline(v=median(df_Bust$Bust), lty=2, lwd=3, col="blue")
 text(mean(df_Bust$Bust), 100, labels = paste("mean = ", as.character(round(mean(df_Bust$Bust), digits=4))),
@@ -55,7 +55,7 @@ text(mean(df_Bust$Bust), 120, labels = paste("median = ", as.character(round(med
      pos = 4, col="blue")
 
 ## Plot Cup size
-hist(df_Cup$Cup, main="Частота Cup", xlab="Cup", col="cyan")
+hist(df_Cup$Cup, main="Популярность размеров\n Cup", xlab="Cup", col="cyan")
 abline(v=mean(df_Cup$Cup), lty=2, lwd=3, col="red")
 abline(v=median(df_Cup$Cup), lty=2, lwd=3, col="blue")
 text(mean(df_Cup$Cup), 50, labels = paste("mean = ", as.character(round(mean(df_Cup$Cup), digits=4))), 
@@ -64,7 +64,7 @@ text(mean(df_Cup$Cup), 60, labels = paste("median = ", as.character(round(median
      pos = 4, col="blue")
 
 ## Plot Waist size
-hist(df_Waist$Waist, main="Частота Waist", xlab="Waist", col="cyan")
+hist(df_Waist$Waist, main="Популярность размеров\n талии (Waist)", xlab="Waist", col="cyan")
 abline(v=mean(df_Waist$Waist), lty=2, lwd=3, col="red")
 abline(v=median(df_Waist$Waist), lty=2, lwd=3, col="blue")
 text(mean(df_Waist$Waist), 200, labels = paste("mean = ", as.character(round(mean(df_Waist$Waist), digits=4))), 
@@ -200,3 +200,88 @@ plot(df_Waist$Date, df_Waist$Waist)
 plot(df_Hips$Date, df_Hips$Hips)
 plot(df_BMI$Date, df_BMI$BMI)
 plot(df_WH$Date, df_WH$WH)
+
+## Trends by Months
+### Bust size
+g <- ggplot(df, aes(Date, Bust)) +
+  labs(y="Bust size", x="Date", title="Bust sizes trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(Month ~ .)
+
+print(g)
+
+### Cup size
+g <- ggplot(df, aes(Date, Cup)) +
+  labs(y="Cup size", x="Date", title="Cup sizes trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(Month ~ .)
+
+print(g)
+
+### Waist size
+g <- ggplot(df, aes(Date, Waist)) +
+  labs(y="Waist size", x="Date", title="Waist sizes trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(Month ~ .)
+
+print(g)
+
+### Hips size
+g <- ggplot(df, aes(Date, Hips)) +
+  labs(y="Hips size", x="Date", title="Hips sizes trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(Month ~ .)
+print(g)
+
+### Height size
+g <- ggplot(df, aes(Date, Height)) +
+  labs(y="Height size", x="Date", title="Height sizes trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(Month ~ .)
+print(g)
+
+### Weight size
+g <- ggplot(df, aes(Date, Weight)) +
+  labs(y="Weight size", x="Date", title="Weight sizes trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(Month ~ .)
+print(g)
+
+### BMI size
+g <- ggplot(df_BMI, aes(Date, BMI)) +
+  labs(y="BMI", x="Date", title="BMI trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2)) 
+print(g)
+
+### BMI size from 2000
+dfn <- subset(df_BMI, Date > "2000-01-01")
+g <- ggplot(dfn, aes(Date, BMI)) +
+  labs(y="BMI", x="Date", title="BMI trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(. ~ Hips)
+print(g)
+
+### Bust size from 2000
+dfn <- subset(df_Bust, Date > "2000-01-01")
+g <- ggplot(dfn, aes(Date, Bust)) +
+  labs(y="BMI", x="Date", title="Bust trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") +
+  facet_grid(. ~ Hips, scales="free_y")
+print(g)
+
+### Cup size from 2000
+dfn <- subset(df_Cup, Date > "2000-01-01")
+g <- ggplot(dfn, aes(Date, Cup)) +
+  labs(y="BMI", x="Date", title="Cup trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") 
+print(g)
+
+### Waist size from 2000
+dfn <- subset(df_Waist, Date > "2000-01-01")
+g <- ggplot(dfn, aes(Date, Waist)) +
+  labs(y="BMI", x="Date", title="Cup trend") +
+  geom_point(aes(size=2)) + geom_smooth(aes(size=2), method="lm") 
+print(g)
+
+
+hist(df_Bust$Bust, main="Популярность размеров\n Bust", xlab="Bust", col="cyan")
