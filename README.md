@@ -1,5 +1,5 @@
 ---
-title: "Playmate analysis"
+title: "Playmates analysis"
 author: "Yevgeny V.Yorkhov"
 date: "03/15/2015"
 output: html_document
