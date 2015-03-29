@@ -5,10 +5,10 @@ date: "03/15/2015"
 output: html_document
 ---
 
-# Miss Playboy January 1991 is all-time popular model!
+# Playboy January 1991 playmate is the model with the most popular body sizes!
 
 ## Synopsis
-Miss **[Stacy Arthur](http://en.wikipedia.org/wiki/Stacy_Arthur)** had the most popular body measurements (Bust, Cup, Waist, Hips, Height, Weight, BMI, WH) from 1975 toll 2008.
+**[Stacy Arthur](http://en.wikipedia.org/wiki/Stacy_Arthur)** has the most popular body measurements (Bust, Cup, Waist, Hips, Height, Weight, BMI, WH) from 1975 till 2008.
   
 ## The dataset
 
@@ -25,7 +25,7 @@ I used the following variables in analysis:
 7. BMI - [Body Mass Index](http://en.wikipedia.org/wiki/Body_mass_index)
 8. WH - [Waist-hip ration](http://en.wikipedia.org/wiki/Waist%E2%80%93hip_ratio)
 
-## 1. Data processing
+## 1. Data preparation
 
 The dataset is small so I prepared 8 new datasets which contain complete cases of each variable.
 
@@ -204,10 +204,11 @@ mm_wh
 ```
 Looks good. Let's continue with some plotting.
 
-## 2. Plot the frequencies of body measurements.
+### Plot the frequencies of body measurements.
 
-![plot of chunk plot_sizes](figure/plot_sizes-1.png) 
+![plot of chunk plot_sizes](figure/plot_sizes-1.png) ![plot of chunk plot_sizes](figure/plot_sizes-2.png) 
 
+### Fix errors in dataset
 Hips size frequency looks strange. Let's dig into this.
 
 List models whos hips size < 30''
@@ -255,9 +256,10 @@ mm_hips
 ```
 
 
-## Find the model who has the most popular sizes of body measurement. 
+## 2. Data processing
+Find the model who has the most popular sizes of body measurement. 
 
-### Here I just find the models who's sizes are the closest to mean values.
+### Find the models who's sizes are the closest to mean values.
 
 ```r
 prec <- 1
@@ -290,9 +292,9 @@ df1[
 ## 446 January 1991   36   4    23   35     67    115 18.00958 0.6571429
 ```
 
-Here I find that the model is **[Stacy Arthur](http://en.wikipedia.org/wiki/Stacy_Arthur)**
+The model is **[Stacy Arthur](http://en.wikipedia.org/wiki/Stacy_Arthur)**
 
-### Here I just find the models who's sizes are the closest to median values.
+### Find the models who's sizes are the closest to median values.
 
 ```r
 bust <- round(median(df_Bust$Bust), digits = prec)
@@ -331,7 +333,8 @@ df1[
 ## 659   October 2008   34   3    24   34     65    115 19.13491 0.7058824
 ```
 
-Here I find 9 models.
+## 3. Result
+Here are 9 models.
 
 1. Jan 1992 - **[Stacy Arthur](http://www.boobpedia.com/boobs/Stacy_Arthur)**
 2. March 1992 - **[Tylyn John](http://www.boobpedia.com/boobs/Tylyn_John)**
