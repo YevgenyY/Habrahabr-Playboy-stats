@@ -147,6 +147,7 @@ df1[
   df1$BMI < bmi+range & df1$BMI > bmi-range &
   df1$WH < wh+range & df1$WH > wh-range 
 ,]
+
 ### We get Stacy Arthur here. She is all time star.
 ### http://en.wikipedia.org/wiki/Stacy_Arthur
 ### Month Year Bust Cup Waist Hips Height Weight      BMI        WH       Date
@@ -174,6 +175,7 @@ df1[
     df1$BMI < bmi+range & df1$BMI > bmi-range &
     df1$WH < wh+range & df1$WH > wh-range 
   ,]
+
 ### We get many girls here
 ### 1. http://en.wikipedia.org/wiki/Stacy_Arthur
 ### 2. http://en.wikipedia.org/wiki/Valerie_Mason-John
